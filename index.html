@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stato d'Animo</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+      transition: background-color 0.5s ease;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .mood-button {
+      font-size: 30px;
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+
+    .mood-button:hover {
+      transform: scale(1.1);
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Come ti senti oggi?</h1>
+
+  <button class="mood-button" onclick="setMood('felice')">😊</button>
+  <button class="mood-button" onclick="setMood('triste')">😢</button>
+  <button class="mood-button" onclick="setMood('arrabbiato')">😡</button>
+  <button class="mood-button" onclick="setMood('carico')">⚡</button>
+
+  <div id="message"></div>
+
+  <script>
+    function setMood(mood) {
+      const body = document.body;
+      const message = document.getElementById('message');
+
+      switch (mood) {
+        case 'felice':
+          body.style.backgroundColor = '#ffe066';
+          message.textContent = 'Continua a sorridere, stai andando alla grande!';
+          break;
+        case 'triste':
+          body.style.backgroundColor = '#74c0fc';
+          message.textContent = 'Anche le giornate grigie portano arcobaleni.';
+          break;
+        case 'arrabbiato':
+          body.style.backgroundColor = '#ff6b6b';
+          message.textContent = 'Respira, conta fino a 10... tutto si sistema.';
+          break;
+        case 'carico':
+          body.style.backgroundColor = '#51cf66';
+          message.textContent = 'Sei una macchina da guerra oggi!';
+          break;
+        default:
+          body.style.backgroundColor = '#ffffff';
+          message.textContent = '';
+      }
+    }
+  </script>
+</body>
+</html>
