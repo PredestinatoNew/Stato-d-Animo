@@ -9,7 +9,7 @@ Un semplice sito web per scegliere come ti senti oggi, con un'interfaccia intera
 
 ## Come usare
 
-1. Vai su [GitHub Pages](https://tuo-username.github.io/stato-d-animo/).
+1. Vai su [GitHub Pages](https://predestinatonew.github.io/Stato-d-Animo/).
 2. Clicca uno dei pulsanti corrispondenti al tuo stato d'animo.
 3. Goditi il messaggio motivazionale che appare!
 
