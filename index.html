@@ -40,39 +40,80 @@
 <body>
   <h1>Come ti senti oggi?</h1>
 
-  <button class="mood-button" onclick="setMood('felice')">😊</button>
-  <button class="mood-button" onclick="setMood('triste')">😢</button>
-  <button class="mood-button" onclick="setMood('arrabbiato')">😡</button>
-  <button class="mood-button" onclick="setMood('carico')">⚡</button>
+  <div class="button-container">
+    <button class="mood-button" onclick="setMood('felice')">😊</button>
+    <button class="mood-button" onclick="setMood('triste')">😢</button>
+    <button class="mood-button" onclick="setMood('arrabbiato')">😡</button>
+    <button class="mood-button" onclick="setMood('carico')">⚡</button>
+  </div>
 
-  <div id="message"></div>
+  <div id="emoji-display" style="font-size: 60px; margin-top: 20px;"></div>
+  <div id="message" style="font-size: 20px; margin-top: 10px;"></div>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      transition: background-color 0.5s ease;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .mood-button {
+      font-size: 30px;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .mood-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
 
   <script>
     function setMood(mood) {
       const body = document.body;
       const message = document.getElementById('message');
+      const emojiDisplay = document.getElementById('emoji-display');
+      let emoji = '';
+      let text = '';
+      let bgColor = '';
 
       switch (mood) {
         case 'felice':
-          body.style.backgroundColor = '#ffe066';
-          message.textContent = 'Continua a sorridere, stai andando alla grande!';
+          emoji = '😊';
+          text = 'Continua a sorridere, stai andando alla grande!';
+          bgColor = '#ffe066';
           break;
         case 'triste':
-          body.style.backgroundColor = '#74c0fc';
-          message.textContent = 'Anche le giornate grigie portano arcobaleni.';
+          emoji = '😢';
+          text = 'Anche le giornate grigie portano arcobaleni.';
+          bgColor = '#74c0fc';
           break;
         case 'arrabbiato':
-          body.style.backgroundColor = '#ff6b6b';
-          message.textContent = 'Respira, conta fino a 10... tutto si sistema.';
+          emoji = '😡';
+          text = 'Respira, conta fino a 10... tutto si sistema.';
+          bgColor = '#ff6b6b';
           break;
         case 'carico':
-          body.style.backgroundColor = '#51cf66';
-          message.textContent = 'Sei una macchina da guerra oggi!';
+          emoji = '⚡';
+          text = 'Hai una bellissima energia, sfruttala al meglio!';
+          bgColor = '#51cf66';
           break;
         default:
-          body.style.backgroundColor = '#ffffff';
-          message.textContent = '';
+          bgColor = '#ffffff';
       }
+
+      body.style.backgroundColor = bgColor;
+      message.textContent = text;
+      emojiDisplay.textContent = emoji;
     }
   </script>
 </body>
